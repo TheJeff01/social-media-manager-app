@@ -6,26 +6,7 @@
   display: none;
   width: 250px;
   background: var(--primary-gradient);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Add subtle pattern to sidebar */
-.desktop-sidebar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.3;
-  z-index: 0;
-}
-
-.desktop-sidebar > * {
-  position: relative;
-  z-index: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar-item {
@@ -37,29 +18,14 @@
   padding: 12px 16px;
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.sidebar-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  background: rgba(255, 255, 255, 0.1);
-  transition: width 0.3s ease;
-}
-
-.sidebar-item:hover::before {
-  width: 100%;
+  border: 1px solid transparent;
 }
 
 .sidebar-item:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateX(5px);
-  backdrop-filter: blur(10px);
+  border-color: rgba(0, 198, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 198, 255, 0.2);
 }
 
 .sidebar-content {
@@ -94,22 +60,24 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 50;
+  z-index: 1000;
   cursor: pointer;
   font-size: 2.5rem;
   display: block;
   padding: 12px;
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  color: var(--primary-color);
+  color: var(--accent-color);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu-icon:hover {
-  background: var(--primary-gradient);
+  background: var(--accent-gradient);
   color: white;
   transform: scale(1.05);
+  box-shadow: var(--shadow-md);
 }
 
 .overlay {
@@ -118,9 +86,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 40;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(-100%);
   opacity: 0;
@@ -140,11 +108,13 @@
   gap: 15px;
   font-weight: 500;
   transition: all 0.3s ease;
+  width: 100%;
+  pointer-events: auto;
 }
 
 .links:hover {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  color: var(--accent-color);
+  text-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
 }
 
 .mobile-sidebar {
@@ -158,26 +128,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--shadow-lg);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Add pattern to mobile sidebar too */
-.mobile-sidebar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.3;
-  z-index: 0;
-}
-
-.mobile-sidebar > * {
-  position: relative;
-  z-index: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .close-icon {
@@ -188,11 +139,13 @@
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
   width: fit-content;
+  color: var(--accent-color);
 }
 
 .close-icon:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: rotate(90deg);
+  background: rgba(0, 198, 255, 0.2);
+  transform: rotate(90deg) scale(1.1);
+  color: white;
 }
 
 @media (min-width: 900px) {
@@ -216,12 +169,14 @@
   }
 }
 
-/* Icon animations */
+/* Enhanced icon animations with dark theme glow */
 .sidebar-item .links svg {
   transition: all 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(0, 198, 255, 0.3));
 }
 
 .sidebar-item:hover .links svg {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.8));
+  color: var(--accent-color);
 }

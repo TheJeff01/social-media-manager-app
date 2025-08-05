@@ -19,8 +19,9 @@
   width: 60px;
   height: 60px;
   border-radius: var(--radius-md);
-  background-color: rgba(240, 147, 251, 0.1);
+  background-color: rgba(0, 198, 255, 0.1);
   transition: all 0.3s ease;
+  border: 1px solid rgba(0, 198, 255, 0.2);
 }
 
 .data-card {
@@ -39,9 +40,10 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Add subtle gradient overlay */
+/* Dark theme gradient overlay */
 .data-card::before {
   content: '';
   position: absolute;
@@ -55,13 +57,14 @@
 
 .data-card:hover::before {
   height: 100%;
-  opacity: 0.05;
+  opacity: 0.08;
 }
 
 .data-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-lg);
-  background: var(--bg-card);
+  border-color: rgba(0, 198, 255, 0.3);
+  background: var(--bg-surface);
 }
 
 .data-card:hover .data-icon {
@@ -69,20 +72,23 @@
   background: var(--accent-gradient);
   color: white;
   -webkit-text-fill-color: white;
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.4);
+  border-color: var(--accent-color);
 }
 
-/* Add number styling */
+/* Dark theme number styling */
 .data-card > div:last-child {
   font-size: 2.2rem;
   font-weight: 700;
-  background: var(--primary-gradient);
+  background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-top: 10px;
+  text-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
 }
 
-/* Title styling */
+/* Dark theme title styling */
 .data-card > div:nth-child(2) {
   color: var(--text-secondary);
   font-weight: 600;
@@ -117,8 +123,8 @@
   }
 }
 
-/* Add subtle animation on load */
-@keyframes slideInUp {
+/* Dark theme animation on load */
+@keyframes slideInUpDark {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -130,7 +136,7 @@
 }
 
 .data-card {
-  animation: slideInUp 0.6s ease-out;
+  animation: slideInUpDark 0.6s ease-out;
 }
 
 .data-card:nth-child(2) {
@@ -141,16 +147,18 @@
   animation-delay: 0.2s;
 }
 
-/* Add loading state animation */
+/* Dark theme loading state */
 .data-card.loading {
-  animation: pulse 1.5s ease-in-out infinite;
+  animation: pulseDark 1.5s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes pulseDark {
   0%, 100% {
     opacity: 1;
+    box-shadow: var(--shadow-sm);
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
   }
 }

@@ -26,6 +26,7 @@ function Layout() {
     <div className="app-wrapper">
       <div className="layout">
         <Sidebar />
+        
         <div className="app-container">
           <div className="app-header">
             <h1>{getPageTitle()}</h1>
