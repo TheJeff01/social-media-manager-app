@@ -1,23 +1,19 @@
+// Scheduler.jsx - Simplified (no more layout duplication!)
 import React from "react";
 import "./Scheduler.css";
-import { CiBellOn } from "react-icons/ci";
-import { FaRegCircleUser } from "react-icons/fa6";
-import Sidebar from "../../components/SideBar/Sidebar";
 
 function Scheduler() {
   return (
-    <div className="layout">
-      <Sidebar />
-      <div className="app-container">
-        <div className="app-header">
-          <h1>Scheduler</h1>
-          <div className="notification-user">
-            <CiBellOn />
-            <FaRegCircleUser />
-          </div>
-        </div>
+    <>
+      {/* Only scheduler-specific content */}
+      <div>
+        <h2>Schedule Your Posts</h2>
+        <p>Create and schedule your social media posts here.</p>
+        
+        {/* Add your scheduler components here */}
+        {/* Calendar, post editor, scheduled posts list, etc. */}
       </div>
-    </div>
+    </>
   );
 }
 
