@@ -1,0 +1,10 @@
+
+.notification-user{
+    font-size: 1.875rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+@media (min-width: 900px) {
+    
+}

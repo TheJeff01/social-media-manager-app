@@ -1,0 +1,27 @@
+.dashboard-data-card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.data-icon {
+  font-size: 1.875rem;
+  font-weight: 900;
+}
+.data-card {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  background-color: #fff;
+  color: var(--primary-color);
+  border-radius: 15px;
+  width: 45%;
+  max-width: 250px;
+  padding: 20px;
+  font-weight: 500;
+}
+@media (min-width: 900px) {
+  .dashboard-data-card {
+    justify-content: left;
+    gap: 20px;
+  }
+}

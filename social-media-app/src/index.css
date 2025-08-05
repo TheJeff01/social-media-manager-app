@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary-color: #00838f;
+  --secondary-color: #2c333a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 50px;
+}
+.app-container {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  background: #edeaea;
+}
+
+/* Mobile styles */
+@media (max-width: 899px) {
+  .layout {
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+  }
+
+  .app-container {
+    padding: 15px;
+    width: 100vw; /* Full viewport width */
+    margin: 0;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 900px) {
+  .layout {
+    flex-direction: row;
+  }
+
+  .app-container {
+    padding: 0 40px;
+    margin-left: 0; /* Ensure no unexpected margins */
+  }
+  .app-header {
+    padding-right: 0%;
+    padding-top: 50px;
+  }
+}
