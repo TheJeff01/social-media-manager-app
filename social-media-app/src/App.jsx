@@ -5,17 +5,7 @@ import Layout from "./Layout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Scheduler from "./pages/scheduler/Scheduler";
 import Login from "./pages/Login/Login";
-
-// Create a simple Accounts component for now
-const Accounts = () => {
-  return (
-    <div>
-      <h2>Manage Your Accounts</h2>
-      <p>Connect and manage your social media accounts here.</p>
-      {/* Add your accounts management components here */}
-    </div>
-  );
-};
+import Accounts from "./pages/Accounts/Accounts";
 
 function App() {
   return (

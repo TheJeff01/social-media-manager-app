@@ -79,7 +79,10 @@ body {
   flex: 1;
   width: 100%;
   padding: 20px;
+  height: 100vh;
   background: var(--bg-primary);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: hidden;
 }
 
 /* Subtle dark background pattern */
